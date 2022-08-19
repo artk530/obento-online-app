@@ -1,0 +1,27 @@
+<main>
+    <section class="top3">
+    <h2>人気のお弁当BEST3</h2>
+    </section>
+
+    <section class="menus">
+    <h1>商品一覧</h1>
+    <%= link_to "新規商品追加", menu_new_path %>/<%= link_to "材料一覧", ing_index_path %><br>
+        <div class="menu_list">
+            <% @menus.each do |menu| %>
+            <div class="menu_list_content">
+                <%= link_to image_tag(menu.image), menu_show_path(menu.id), alt: "お弁当の画像" %><br>
+                <%= link_to menu.name, menu_show_path(menu.id) %> 
+                <%= link_to "編集", menu_edit_path(menu.id) %><br>
+                <%= menu.price %>円<br>
+                <br>
+                <%= form_with model: @menus, url: index_cart_in_path do |f| %>
+                    <%= f.hidden_field :menu_id, value: menu.id %>
+                    <label>個数</label><%= f.number_field :quantity, in: 1.0..20.0, step: 1, value: 1 %><br>
+                    <%= f.submit "カートに追加する" %>
+                <% end %>
+                <br>
+            </div>
+            <% end %>
+        </div>
+    </section>
+</main>

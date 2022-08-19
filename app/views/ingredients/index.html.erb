@@ -1,0 +1,13 @@
+<main>
+  <div class="ing_list">
+    <h1>材料一覧</h1>
+    <%= link_to "新規材料登録", ing_new_path %><br>
+    <br> 
+    <label class="list_title">材料名/アレルギー</label><br>
+      <% @ingredients.each do |ingredient| %>
+        <%= ingredient.name %>/<%= ingredient.allergy_name %> ( <%= link_to "編集", ing_edit_path(ingredient.id) %> 
+        <%= link_to "削除", ing_delete_path(ingredient.id), method: :delete %> ) <br>
+        -------------------------------<br>
+      <% end %>
+  </div>
+</main>

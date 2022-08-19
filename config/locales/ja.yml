@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    attributes:
+      ingredient:
+        name: 名前
+        allergy_name: アレルギー
+      menu:
+        name: 名前
+        price: 価格 
+        image: 画像

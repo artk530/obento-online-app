@@ -1,0 +1,18 @@
+<main>
+  <div class="cart_item_list">
+    <h1>カートに追加した商品</h1>
+    <% @cart.each do |cart| %>
+      <%= form_with model: @cart, url: cart_out_path, method: :delete do |f| %>
+        <%= cart.menu.name %> 
+        <%= cart.menu.price %>円
+        <%= f.hidden_field :cart_id, value: cart.id %>
+        <%= f.submit "カートから削除する" %>
+      <% end %>  
+      ----------------------------------------
+    <% end %>
+    <br>
+    <label>小計<%= @total_price %>円</label>
+    <br>
+    <span class="order_link"><%= link_to "注文画面に進む", orders_new_path %></span>
+  </div>
+</main>

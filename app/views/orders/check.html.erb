@@ -1,0 +1,33 @@
+<main>
+  <div class="order_confirm">
+      <h3>以下の内容でご注文を承ります</h3>
+      <br>
+      <h1>注文商品一覧</h1>
+      <% @cart.each do |cart| %>
+        <%= form_with model: @cart, url: cart_out_path, method: :delete do |f| %>
+          <%= cart.menu.name %> 
+          <%= cart.menu.price %>円
+          <%= f.hidden_field :cart_id, value: cart.id %>
+        <% end %>  
+        ----------------------------------------
+      <% end %> 
+      <br>
+      <label>合計<%= @total_price %>円</label><br>
+      <br>
+      <%= form_with url: orders_create_path  do |f| %>
+        <%= f.label "■お弁当の受け取り方法" %><br>
+        <%= f.label " ・#{session[:receive]}" %><br>
+        <br>
+        <%= f.label "■メールアドレス" %><br>
+        <%= f.label session[:email] %><br>
+        <%= f.label "■電話番号" %><br>
+        <%= f.label session[:tel] %><br>
+        <%= f.label "■お届け先" %><br>
+        <%= f.label session[:address] %><br>
+        <%= f.label "合計" %><br>
+        <%= f.label @total_price %>円<br>
+        <br>
+        <%= f.submit "注文確定" %>
+      <% end %>
+    </div>
+</main>

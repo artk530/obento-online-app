@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>お弁当オンラインショップ</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <header>
+      <p>お弁当オンラインショップ</p>
+      <nav class="navigate">
+        <%= link_to "<メニュー一覧に戻る>", root_path %>
+        <%= link_to "<カートの中身を確認する>", cart_list_path %>
+        <% if logged_in? %>
+          <%= link_to "<ログアウト>", logout_path, method: :delete %>
+          <%= link_to "<ユーザー更新>", user_edit_path(current_user) %>
+        <% else %>
+          <%= link_to "<ログイン>", login_path %>
+          <%= link_to "<会員登録>", user_new_path %>
+        <% end %>
+      </nav>
+    </header>
+  </head>
+
+  <body>
+    <div class="flash_notice">
+      <%= flash[:notice] %>
+    </div>
+    <div class="flash_alert">
+      <%= flash[:alert] %>
+    </div>
+    <%= yield %>
+    <%= debug(params) if Rails.env.development? %>
+  </body>
+</html>

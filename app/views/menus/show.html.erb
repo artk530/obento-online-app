@@ -1,0 +1,28 @@
+<main>
+  <div class="menu_detail">
+    <h1>商品詳細</h1>
+      <div class="menu_name"><%= @menu.name %><br></div> 
+      <div class="allergy_info"><label>※使用しているアレルギー</label>
+      <% @allergy.each do |allergy|%>
+        <%= allergy %>
+      <% end %></div>
+      <%= image_tag @menu.image %><br>
+      <label>価格:</label><%= @menu.price %>円<br>
+    <br>
+    <%= form_with model: @menu, url: cart_in_path do |f| %>
+      <%= f.hidden_field :menu_id, value: @menu.id %>
+      <label>個数</label><%= f.number_field :quantity, in: 1.0..20.0, step: 1, value: 1 %><br>
+      <%= f.submit "カートに追加する" %>
+    <% end %>
+    <br>
+    <div class="use_ing_list">
+      使用している材料<br>
+      <% @ing_name.each do |ing_name| %>
+        ・<%= ing_name%>
+      <% end%>
+    </div>
+    <br>
+    <br>
+    <%= link_to "一覧に戻る", root_path %>
+  </div>
+</main>

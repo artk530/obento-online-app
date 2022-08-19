@@ -1,0 +1,25 @@
+<main>
+    <div class="create_user">
+        <h1>会員登録</h1>
+        <%= form_with model: @user, url: user_create_path, scope: :user, local: true do |f| %>
+        <%= f.label "お名前" %><br>
+        <%= f.text_field :name %><br>
+        <%= f.label "カナ" %><br>
+        <%= f.text_field :name_kana %><br>
+        <%= f.label "メールアドレス" %><br>
+        <%= f.email_field :email %><br>
+        <%= f.label "パスワード" %><br>
+        <%= f.password_field :password %><br>
+        <%= f.label "再度パスワードを入力してください" %><br>
+        <%= f.password_field :password_confirmation %><br>
+        <%= f.label "郵便番号" %><br>
+        <%= f.number_field :post_code %><br>
+        <%= f.label "住所" %><br>
+        <%= f.text_field :address %><br>
+        <%= f.label "電話番号" %><br>
+        <%= f.number_field :tel %><br>
+        <br>
+        <%= f.submit "会員登録" %>
+        <% end %>
+    </div>
+</main>

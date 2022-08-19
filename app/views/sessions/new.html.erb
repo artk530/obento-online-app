@@ -1,0 +1,17 @@
+<main>
+    <div class="login">
+        <h1>ログイン画面</h1>
+        <%= form_with url: login_create_path, scope: :session, local: true do |f| %>
+            <%= f.label "メールアドレス" %><br>
+            <%= f.email_field :email %><br>
+            <%= f.label "パスワード" %><br>
+            <%= f.password_field :password %><br>
+            <br>
+            <%= f.label :remember_me, class: "check inline" do %>
+                <%= f.check_box :remember_me %>
+                <span>ログイン情報を保存しますか？</span>
+            <% end %><br>
+            <%= f.submit "ログイン" %>
+        <% end %>
+    </div>
+</main>

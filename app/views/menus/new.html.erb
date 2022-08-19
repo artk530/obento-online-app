@@ -1,0 +1,18 @@
+<main>
+  <div class="new_menu">
+    <%= form_with model: @menu, url: menu_create_path, local: true do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <h1>新規商品登録</h1>
+      <label>材料名:</label><%= f.text_field :name %><br>
+      <label>価格:</label><%= f.number_field :price %><br>
+      <label>画像:</label><%= f.file_field :image %><br>
+      <br>
+      使用している材料にチェックを入れる<br>
+      <% @ingredients.each do |ingredient| %>
+      <label><%= ingredient.name %></label>
+      <input type="checkbox" name="menu[ingredient][]" value="<%= ingredient.id %>" /><br>
+      <% end %>
+      <%= f.submit "商品登録" %> 
+    <% end %>
+  </div>
+</main>

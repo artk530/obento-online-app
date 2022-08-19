@@ -1,0 +1,66 @@
+ /* menus#index */
+.top3 {
+    padding: 0 15px;
+    border: none;
+    margin: auto 200px;
+}
+
+.menus {
+    padding: 0 15px;
+    border: none;
+    margin: auto 200px;
+}
+
+.menus a {
+    text-decoration: none;
+    color: #0d0d0d;
+}
+
+.menu_list {
+ display: flex;   
+}
+
+.menu_list_content {
+    margin-right: 30px;
+    border: solid 1px black; 
+}
+
+.menu_list_content img {
+    width: 230px;
+    height: 150px;
+ }
+
+ /* menus#new */
+.new_menu {
+    padding: 0 15px;
+    border: none;
+    margin: auto 200px;
+}
+
+ /* menus#show */
+.menu_detail {
+    padding: 0 15px;
+    border: none;
+    margin: auto 200px;
+}
+
+.menu_name {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.allergy_info {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.use_ing_list {
+    border: solid 3px;
+}
+
+/* menus#edit */
+.menu_edit {
+    padding: 0 15px;
+    border: none;
+    margin: auto 200px;
+}

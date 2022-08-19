@@ -1,0 +1,40 @@
+<main>
+  <div class="order_info_Entry">
+    <h1>注文商品一覧</h1>
+    <% @cart.each do |cart| %>
+      <%= form_with model: @cart, url: cart_out_path, method: :delete do |f| %>
+        <%= cart.menu.name %> 
+        <%= cart.menu.price %>円
+        <%= f.hidden_field :cart_id, value: cart.id %>
+      <% end %>  
+      ----------------------------------------
+    <% end %> 
+    <br>
+    <label>小計<%= @total_price %>円</label>
+
+    <h4>お弁当の受け取り方法</h4>
+    <%= form_with url: order_check_path, local: true  do |f| %>
+        <%= f.radio_button :receive, :shop, checked: true, id: :shop_btn %>
+        <%= f.label :receive, "店舗で受け取る" %><br>
+        <%= f.radio_button :receive, :delivery, id: :delivery_btn %>
+        <%= f.label :receive, "自宅まで配送を希望　料金+300円" %><br>
+        <%= f.label "メールアドレス" %><br>
+        <%= f.text_field :email, value: @user.email, required: true %><br>
+        <%= f.label "電話番号" %><br>
+        <%= f.text_field :tel, value: @user.tel, required: true  %><br>
+        <h4><span class="delivery">※自宅まで配送を希望</span>を選択された場合は、下記についてもご入力ください</h4>
+        <%= f.label "お届け先" %><br>
+        <%= f.text_field :address, value: @user.address, id: :delivery_address %><br>
+        <%= f.submit "確認画面へ" %>
+        <script>
+          document.getElementById("delivery_btn").onclick = (function() {
+          document.getElementById("delivery_address").required = true;
+          });
+
+          document.getElementById("shop_btn").onclick = (function() {
+          document.getElementById("delivery_address").required = false;
+          });
+        </script>    
+    <% end %>
+  </div>
+</main>

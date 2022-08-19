@@ -1,0 +1,22 @@
+<main>
+    <div class="edit_user">
+        <span class="edit_user_title"><h1>ユーザー情報の更新</h1></span>
+        <%= form_with model: @user, url: user_update_path, scope: :user, local: true do |f| %>
+        <%= f.label "お名前:" %><br>
+        <%= f.text_field :name %><br>
+        <%= f.label "カナ:" %><br>
+        <%= f.text_field :name_kana %><br>
+        <%= f.label "メールアドレス:" %><br>
+        <%= f.email_field :email %><br>
+        <%= f.label "パスワード" %><br>
+        <%= f.password_field :password %><br>
+        <%= f.label "再度パスワード:" %><br>
+        <%= f.password_field :password_confirmation %><br>
+        <%= f.label "住所:" %><br>
+        <%= f.text_field :address %><br>
+        <%= f.label "電話番号:" %><br>
+        <%= f.number_field :tel %><br>
+        <%= f.submit "更新" %>
+        <% end %>
+    </div>
+</main>

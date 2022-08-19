@@ -1,0 +1,31 @@
+<main>
+  <div class="menu_edit">
+    <h1>商品編集</h1>
+    <%= form_with model: @menu, url: menu_update_path do |f| %>
+      <label>材料名:</label><%= f.text_field :name %><br>
+      <label>価格:</label><%= f.number_field :price %><br>
+      <label>画像:</label><%= f.file_field :image %><br>
+        ↓使用している材料にチェックを入れる↓<br>
+      <!-- 使用している材料のチェックボックス処理 -->
+      <% @ingredients.each do |ingredient| %>
+      <% show_flg = false %>
+        <% @ing_name.each do |ing_name| %>
+            <% if ingredient.name == ing_name %>
+                <label><%= ingredient.name %></label>
+                <input type="checkbox" name="menu[ingredient][]" value="<%= ingredient.id %>" checked = {true} /><br>
+                <% show_flg = true %>
+                <% break %>
+            <% end %>
+        <% end %>
+        <% if show_flg == false %>  
+            <label><%= ingredient.name %></label>
+            <input type="checkbox" name="menu[ingredient][]" value="<%= ingredient.id %>"/><br>
+        <% end %>
+      <% end %>
+      <!-- 使用している材料のチェックボックス処理 -->
+      <%= f.submit "商品更新" %>
+    <% end %>
+    <br>
+    <%= link_to "一覧に戻る", root_path %>
+  </div>
+</main>
