@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_many :purchase_histries
+    has_many :purchasehistries
 
     has_secure_password
     attr_accessor :remember_token

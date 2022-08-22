@@ -14,7 +14,7 @@
       <br>
       <label>合計<%= @total_price %>円</label><br>
       <br>
-      <%= form_with url: orders_create_path  do |f| %>
+      <%= form_with url: order_create_path  do |f| %>
         <%= f.label "■お弁当の受け取り方法" %><br>
         <%= f.label " ・#{session[:receive]}" %><br>
         <br>
