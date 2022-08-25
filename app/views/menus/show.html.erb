@@ -1,12 +1,16 @@
 <main>
   <div class="menu_detail">
     <h1>商品詳細</h1>
-      <div class="menu_name"><%= @menu.name %><br></div> 
+      <span class="menu_name"><%= @menu.name %><br></span> 
       <div class="allergy_info"><label>※使用しているアレルギー</label>
-      <% @allergy.each do |allergy|%>
-        <%= allergy %>
-      <% end %></div>
-      <%= image_tag @menu.image %><br>
+        <% @allergy.each do |allergy|%>
+          <%= allergy %>
+        <% end %>
+      </div>
+      <div class="image_description">
+        <%= image_tag @menu.image, alt: "お弁当の画像" %><br>
+        <span class="menu_description"><%= @menu.description %></span>
+      </div><br>
       <label>価格:</label><%= @menu.price %>円<br>
     <br>
     <%= form_with model: @menu, url: cart_in_path do |f| %>

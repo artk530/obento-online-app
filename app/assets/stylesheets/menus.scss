@@ -58,6 +58,15 @@
     border: solid 3px;
 }
 
+.image_description {
+    display: flex;
+    gap: 0px 20px;
+}
+
+.menu_description {
+    width: 300px;
+}
+
 /* menus#edit */
 .menu_edit {
     padding: 0 15px;

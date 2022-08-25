@@ -7,4 +7,5 @@ class Menu < ApplicationRecord
 
     validates :name, presence: true
     validates :price, presence: true
+    validates :description, length: { maximum: 300 }
 end

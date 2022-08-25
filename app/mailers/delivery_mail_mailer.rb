@@ -1,6 +1,6 @@
 class DeliveryMailMailer < ApplicationMailer
 
-    def delivery_mail(email,cart,user,receive,address,tel,total_price)
+    def delivery_mail(email,cart,user,receive,address,tel,total_price,ordernumber)
         @email = email
         @cart = cart
         @user = user
@@ -8,6 +8,7 @@ class DeliveryMailMailer < ApplicationMailer
         @address = address
         @tel = tel
         @total_price = total_price
+        @ordernumber = ordernumber
         mail(to: @email, subject: "ご注文ありがとうございます")
     end
 end

@@ -1,6 +1,9 @@
 <main>
     <section class="top3">
     <h2>人気のお弁当BEST3</h2>
+    <% @top3.each do |top3| %>
+        <%= top3.name %>
+    <% end %>
     </section>
 
     <section class="menus">

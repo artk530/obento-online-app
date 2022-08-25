@@ -1,6 +1,17 @@
 class MenusController < ApplicationController
   def index
     @menus = Menu.all
+    @top3 = []
+    count = 0
+    top3 = PurchaseHistrie.where(created_at: Time.current.prev_month..Time.current).group(:menu_id).order('count_all DESC').count
+    top3.each do |menu_id, sum_count|
+      if count == 3
+        break
+      else
+        @top3.push(Menu.find(menu_id))
+        count += 1
+      end
+    end
   end
 
   def show
@@ -115,7 +126,7 @@ class MenusController < ApplicationController
 
   private
   def menu_params
-    params.require(:menu).permit(:name, :price, :image)
+    params.require(:menu).permit(:name, :price, :image, :description)
   end
 
   def Product_params
