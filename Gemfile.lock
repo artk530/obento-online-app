@@ -110,6 +110,7 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.8-x64-mingw32)
       racc (~> 1.4)
+    pg (1.4.3-x64-mingw32)
     public_suffix (4.0.7)
     puma (3.12.6)
     racc (1.6.0)
@@ -211,6 +212,7 @@ DEPENDENCIES
   duktape
   jbuilder (~> 2.5)
   letter_opener
+  pg
   puma (~> 3.11)
   rails (~> 5.2.8, >= 5.2.8.1)
   rails-i18n
