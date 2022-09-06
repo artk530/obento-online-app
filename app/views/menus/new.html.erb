@@ -17,6 +17,8 @@
       <label><%= ingredient.name %></label>
       <input type="checkbox" name="menu[ingredient][]" value="<%= ingredient.id %>" /><br>
       <% end %>
+      <br>
+      <span class="menu_create_Notes">※全ての内容を入力してから商品登録を実施してください</span><br>
       <%= f.submit "商品登録" %> 
     <% end %>
   </div>

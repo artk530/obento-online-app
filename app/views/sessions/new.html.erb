@@ -6,10 +6,9 @@
             <%= f.email_field :email %><br>
             <%= f.label "パスワード" %><br>
             <%= f.password_field :password %><br>
-            <br>
             <%= f.label :remember_me, class: "check inline" do %>
                 <%= f.check_box :remember_me %>
-                <span>ログイン情報を保存しますか？</span>
+                <span>ログイン情報を保存しますか？</span><br>
             <% end %><br>
             <%= f.submit "ログイン" %>
         <% end %>

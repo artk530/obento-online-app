@@ -1,25 +1,39 @@
 <main>
     <div class="create_user">
         <h1>会員登録</h1>
-        <%= form_with model: @user, url: user_create_path, scope: :user, local: true do |f| %>
-        <%= f.label "お名前" %><br>
+        <%= form_with model: @user, url: user_create_path, local: true do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <%= f.label "お名前" %><span class="required">※</span><br>
         <%= f.text_field :name %><br>
-        <%= f.label "カナ" %><br>
+        <%= f.label "カナ氏名" %><span class="required">※</span><br>
         <%= f.text_field :name_kana %><br>
-        <%= f.label "メールアドレス" %><br>
+        <%= f.label "メールアドレス" %><span class="required">※</span><br>
         <%= f.email_field :email %><br>
-        <%= f.label "パスワード" %><br>
+        <%= f.label "パスワード" %>(6桁以上)<span class="required">※</span><br>
         <%= f.password_field :password %><br>
-        <%= f.label "再度パスワードを入力してください" %><br>
+        <%= f.label "再度パスワードを入力してください" %><span class="required">※</span><br>
         <%= f.password_field :password_confirmation %><br>
         <%= f.label "郵便番号" %><br>
         <%= f.number_field :post_code %><br>
         <%= f.label "住所" %><br>
         <%= f.text_field :address %><br>
-        <%= f.label "電話番号" %><br>
+        <%= f.label "電話番号" %><span class="required">※</span><br>
         <%= f.number_field :tel %><br>
+        <span class="required">※</span>は必須入力です
+        <br>
+            <!-- 個人情報についての折り畳みメニュー -->
+            <div onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';">
+                <a style="cursor:pointer;">▼ 個人情報の取り扱いについて</a>
+            </div>
+
+            <div id="open" style="display:none;clear:both;">
+                入力いただいた個人情報につきましては、。。。
+            </div>
         <br>
         <%= f.submit "会員登録" %>
         <% end %>
+        <br>
+        
+
     </div>
 </main>

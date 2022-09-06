@@ -1,7 +1,8 @@
 <main>
   <div class="menu_edit">
     <h1>商品編集</h1>
-    <%= form_with model: @menu, url: menu_update_path do |f| %>
+    <%= form_with model: @menu, url: menu_update_path,  local: true do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
       <label>材料名</label><br>
       <%= f.text_field :name %><br>
       <label>価格</label><br>

@@ -17,11 +17,14 @@
 }
 
 .menu_list {
- display: flex;   
+ display: flex;
+ flex-wrap: wrap;   
+ height: auto;
 }
 
 .menu_list_content {
     margin-right: 30px;
+    margin-bottom: 30px;
     border: solid 1px black; 
 }
 
@@ -35,6 +38,10 @@
     padding: 0 15px;
     border: none;
     margin: auto 200px;
+}
+
+.menu_create_Notes{
+    font-weight: bold;
 }
 
  /* menus#show */
@@ -64,12 +71,21 @@
 }
 
 .menu_description {
-    width: 300px;
+    width: 200px;
 }
+
 
 /* menus#edit */
 .menu_edit {
     padding: 0 15px;
     border: none;
     margin: auto 200px;
+}
+
+
+/* ValidatesError */
+.mb-0 {
+    border-color: red;
+    border: 3px;
+    background-color: red;
 }

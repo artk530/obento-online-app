@@ -41,23 +41,36 @@ class MenusController < ApplicationController
 
   def create
     @menu = Menu.new(menu_params)
+    @ingredients = current_ing
+    ActiveRecord::Base.transaction do
       if params[:menu][:image].present?
-        if @menu.save
-          @menuid = Menu.find_by(name: params[:menu][:name])
-          params[:menu][:ingredient].each do |ingredient|
-            product = Product.new
-            product.ingredient_id = ingredient
-            product.menu_id = @menuid.id
-            product.save
+        if params[:menu][:ingredient].present?
+          if @menu.save!
+            @menuid = Menu.find_by(name: params[:menu][:name])
+            params[:menu][:ingredient].each do |ingredient|
+              #追加したメニューと材料情報をproductテーブルに格納
+              product = Product.new
+              product.ingredient_id = ingredient
+              product.menu_id = @menuid.id
+              product.save!
+            end
+            flash[:notice] = "登録しました"
+            redirect_to root_path
+          else
+            render :new 
           end
-          redirect_to root_path
         else
-          render :new 
+          flash.now[:alert] = "使用している材料を1つ以上選択してください"
+          render :new
         end
       else
         flash.now[:alert] = "画像を登録してください"
         render :new
       end
+    end
+    rescue => e
+    flash[:alert] =  "登録処理に失敗しました。登録内容を確認し、再度処理を実施してください。"
+    redirect_to menu_new_path
   end
 
   def edit
@@ -74,62 +87,57 @@ class MenusController < ApplicationController
 
   def update
     @menu = current_menu
+    @ingredients = current_ing
+    @products = get_product
 
-    #選択した材料からid取得
-    ing_id = []
-    params[:menu][:ingredient].each do |ingredient|
-      ingredients = Ingredient.find_by(id: ingredient)
-      ing_id.push(ingredients.id)
-    end
+     #材料名称 取得
+     @ing_name = []
+     @products.each do |product|
+       @ing_name.push(product.ingredient.name)
+     end
     
     ActiveRecord::Base.transaction do
-      #対象メニューのproduct情報を一度解除する(del_flg=true)
-      product_menu = Product.where(menu_id: params[:id])
-      product_menu.each do |del|
-        if del.update(del_flg: true)
-        else
-          raise "error"
-          flash.now[:alert] = "更新できませんでした。DBの確認をしてください。product_del_flg"
-          render :edit
-        end
-      end
-      #productModelにすでにレコードがあるか判定
-      ing_id.each do |i|
-        product = Product.where(menu_id: params[:id]).where(ingredient_id: i)
-        if product.blank?
-          if Product.create({ menu_id: params[:id], ingredient_id: i, del_flg: false })
-          else
-            raise "error"
-            flash.now[:alert] = "更新できませんでした。DBの確認をしてください。product_create"
-            render :edit
-          end
-        else
-          if product.update(del_flg: false)
-          else
-            raise "error"
-            flash.now[:alert] = "更新できませんでした。DBの確認をしてください。product_update_del_flg"
-            render :edit
-          end
-        end
-      end
-      if @menu.update(menu_params)
-        flash[:notice] = "更新しました。"
-        redirect_to menu_edit_path 
+      #材料が選択されているか確認
+      if params[:menu][:ingredient].blank?
       else
-        raise "error"
-        flash.now[:alert] = "更新できませんでした。更新内容を確認してください。"
-        render :edit
-    end
+        #編集中メニューのproductテーブルの紐付けを一度解除(del_flg⇒true)
+        product_menu = Product.where(menu_id: params[:id])
+        product_menu.each do |pmenu|
+          if pmenu.update!(del_flg: true)
+          end
+        end
+        #編集で選択された材料毎にproductテーブルの作成/紐付け(def_flg⇒false)
+        params[:menu][:ingredient].each do |ing_id| 
+          create_product = Product.where(menu_id: params[:id], ingredient_id: ing_id)
+          if create_product.blank?
+            if Product.create!({ menu_id: params[:id], ingredient_id: ing_id, del_flg: false })
+            end
+          else
+            if create_product.update(del_flg: false)
+            end
+          end
+        end
+      end
 
-    end
+      if params[:menu][:ingredient].blank?
+          flash[:alert] = "使用している材料を選択してください"
+          redirect_to menu_edit_path
+      else
+          if @menu.update!(menu_params)
+            flash[:notice] = "更新しました。"
+            redirect_to menu_edit_path 
+          else
+            render :edit
+          end
+      end
+    end 
+    rescue => e
+      flash[:alert] =  e.message
+      redirect_to menu_edit_path 
   end
 
   private
   def menu_params
     params.require(:menu).permit(:name, :price, :image, :description)
-  end
-
-  def Product_params
-    params.require(:product).permit(:menu_id, :ingredient_id, :del_flg)
   end
 end
