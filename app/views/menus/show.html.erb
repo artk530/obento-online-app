@@ -2,7 +2,7 @@
   <div class="menu_detail">
     <h1>商品詳細</h1>
       <span class="menu_name"><%= @menu.name %><br></span> 
-      <div class="allergy_info"><label>※使用しているアレルギー</label>
+      <div class="allergy_info"><i class="fa-solid fa-circle-exclamation"></i>使用しているアレルギー
         <% @allergy.each do |allergy|%>
           <%= allergy %>
         <% end %>

@@ -17,7 +17,7 @@
         <%= f.number_field :post_code %><br>
         <%= f.label "住所" %><br>
         <%= f.text_field :address %><br>
-        <%= f.label "電話番号" %><span class="required">※</span><br>
+        <%= f.label "電話番号(ハイフン不要)" %><span class="required">※</span><br>
         <%= f.number_field :tel %><br>
         <span class="required">※</span>は必須入力です
         <br>
@@ -27,7 +27,8 @@
             </div>
 
             <div id="open" style="display:none;clear:both;">
-                入力いただいた個人情報につきましては、。。。
+                &emsp;配送をご希望された際のご本人様<br>
+                &emsp;確認のみに使用させていただきます。<br>
             </div>
         <br>
         <%= f.submit "会員登録" %>

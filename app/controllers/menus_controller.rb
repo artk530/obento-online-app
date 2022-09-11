@@ -1,17 +1,21 @@
 class MenusController < ApplicationController
   def index
     @menus = Menu.all
-    @top3 = []
+    menu_in_top3 = []
+    @nocount = 1
     count = 0
     top3 = PurchaseHistrie.where(created_at: Time.current.prev_month..Time.current).group(:menu_id).order('count_all DESC').count
     top3.each do |menu_id, sum_count|
       if count == 3
         break
       else
-        @top3.push(Menu.find(menu_id))
+        menu_in_top3.push(Menu.find(menu_id))
         count += 1
       end
     end
+    @no1 = menu_in_top3[0]
+    @no2 = menu_in_top3[1]
+    @no3 = menu_in_top3[2]
   end
 
   def show

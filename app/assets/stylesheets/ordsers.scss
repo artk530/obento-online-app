@@ -1,8 +1,34 @@
 /* orders#new */
-.order_info_Entry {
+.order_new {
     padding: 0 15px;
     border: none;
     margin: auto 200px;
+}
+
+.receive {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.receive_delivery {
+    font-weight: bold;
+}
+
+.order_menu {
+    font-size: 17px;
+    padding: 20px;
+    width: 550px;
+    height: 300px;
+    white-space: nowrap;
+    overflow-y: scroll;
+}
+
+.order_mail {
+    width: 200px;
+}
+
+.order_address {
+    width: 400px;
 }
 
 /* orders#check */

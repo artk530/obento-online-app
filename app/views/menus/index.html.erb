@@ -1,18 +1,33 @@
 <main>
     <section class="top3">
-    <h2>人気のお弁当BEST3</h2>
-    <% @top3.each do |top3| %>
-        <%= top3.name %>
-    <% end %>
+        <h2><span class="h2">人気のお弁当BEST3</span></h2>
+            <div class="menu_top3">
+                <div class="menu_no1">
+                    <span class="top3_character">人気No1<i class="fa-solid fa-crown"></i></span><br>
+                    <%= link_to image_tag(@no1.image), menu_show_path(@no1.id), alt: "お弁当の画像" %><br>
+                    <%= @no1.name %><br>
+                </div>
+                <div class="menu_no2">
+                    <span class="top3_character">人気No2</span><br>
+                    <%= link_to image_tag(@no2.image), menu_show_path(@no2.id), alt: "お弁当の画像" %><br>
+                    <%= @no2.name %><br>
+                </div>
+                <div class="menu_no3">
+                    <span class="top3_character">人気No3</span><br>
+                    <%= link_to image_tag(@no3.image), menu_show_path(@no3.id), alt: "お弁当の画像" %><br>
+                    <%= @no3.name %><br>
+                </div>
+            </div>
     </section>
-
+    <br>
     <section class="menus">
-    <h1>商品一覧</h1>
+    <h1>商品一覧<hr></h1>
     <%= link_to "新規商品追加", menu_new_path %>/<%= link_to "材料一覧", ing_index_path %><br>
         <div class="menu_list">
             <% @menus.each do |menu| %>
             <div class="menu_list_content">
                 <%= link_to image_tag(menu.image), menu_show_path(menu.id), alt: "お弁当の画像" %><br>
+                <hr>
                 <%= link_to menu.name, menu_show_path(menu.id) %> 
                 <%= link_to "編集", menu_edit_path(menu.id) %><br>
                 <%= menu.price %>円<br>

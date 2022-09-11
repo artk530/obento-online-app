@@ -1,8 +1,59 @@
  /* menus#index */
+.h2 {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+.h2:before, .h2:after {
+    border-top: 1px solid;
+    content: "";
+    width: 3em;
+  }
+
+.h2:before {
+    margin-right: 1em;
+  }
+
+.h2:after {
+    margin-left: 1em;
+  }
+
 .top3 {
     padding: 0 15px;
     border: none;
     margin: auto 200px;
+}
+
+.top3_character {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.top3 img {
+    width: 230px;
+    height: 150px;
+    justify-content: center; /* 水平中心 */
+}
+
+.menu_top3{
+    display: flex;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 20px;
+    justify-content: center;
+}
+
+.menu_no1 {
+    margin-right: 30px;
+}
+
+.menu_no2 {
+    margin-right: 30px;
+}
+
+.menu_no3 {
+    margin-right: 30px;
 }
 
 .menus {
@@ -26,11 +77,19 @@
     margin-right: 30px;
     margin-bottom: 30px;
     border: solid 1px black; 
+    border-radius: 15px;
 }
 
 .menu_list_content img {
     width: 230px;
     height: 150px;
+    border-radius: 15px;
+ }
+
+ hr {
+    border: none;
+    border-top: 1px solid #333;
+    margin: 0;
  }
 
  /* menus#new */
@@ -57,17 +116,25 @@
 }
 
 .allergy_info {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
 }
 
 .use_ing_list {
-    border: solid 3px;
+    padding: 10px;
+    width: 689px;
+    height: 100px;
+    overflow-wrap : break-word;
 }
 
 .image_description {
     display: flex;
     gap: 0px 20px;
+}
+
+.image_description img {
+    width: 500px;
+    height: 350px;
 }
 
 .menu_description {

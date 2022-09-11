@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   def index
+    @cart_nil_message = nil
     if session[:user_id].nil?
       @cart = Cart.where(id_number: session[:guest_id]).where(del_flg: false)
     else
@@ -10,10 +11,16 @@ class CartsController < ApplicationController
     @cart.each do |cart|
       @total_price += cart.menu.price
     end
+
+    if @cart.blank?
+      @cart_nil_message = "お弁当が1つもカートに追加されていません"
+      @next = render :index
+    else
+      @next = order_new_path
+    end
   end
 
   def create
-    
     create_id_number
     menu_id = params[:menu][:menu_id]
         
@@ -38,7 +45,7 @@ class CartsController < ApplicationController
          quantity += 1
       end
     end
-  
+
   def update
     
     create_id_number
