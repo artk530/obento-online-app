@@ -1,9 +1,11 @@
-<h1>材料情報更新</h1>
-<%= form_with model: @ingredient, url: ing_update_path, local: true do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  材料名:<%= f.text_field :name %>
-  アレルギー名<%= f.select :allergy_name, [["卵", "卵"], ["乳", "乳"],["小麦","小麦"],["えび","えび"],["かに","かに"],["落花生","落花生"],["そば","そば"],["無し","無し"]], include_blank: "選択して下さい" %>
-  <%= f.submit "材料更新" %>
-
-  
-<% end %>
+<main>
+  <div class="ing_update">
+    <h1>材料情報更新</h1>
+    <%= form_with model: @ingredient, url: ing_update_path, local: true do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      材料名:<%= f.text_field :name %>
+      アレルギー名<%= f.select :allergy_name, [["卵", "卵"], ["乳", "乳"],["小麦","小麦"],["えび","えび"],["かに","かに"],["落花生","落花生"],["そば","そば"],["無し","無し"]], include_blank: "選択して下さい" %>
+      <%= f.submit "材料更新" %>
+    <% end %>
+  </div>
+</main>

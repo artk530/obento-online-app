@@ -38,7 +38,7 @@ class CartsController < ApplicationController
             flash[:notice] = "カートに追加しました。"
             redirect_to root_path
           else
-            flash.now[:alert] = "カートに追加できませんでした。お手数ですがもう一度操作を実施してください"
+            flash[:alert] = "カートに追加できませんでした。お手数ですがもう一度操作を実施してください"
             redirect_to root_path
           end
          end
@@ -57,7 +57,7 @@ class CartsController < ApplicationController
       if quantity < (params[:menu][:quantity].to_i - 1)
           if Cart.create(menu_id: menu_id, id_number: @id_number)
           else
-            flash.now[:alert] = "カートに追加できませんでした。お手数ですがもう一度操作を実施してください"
+            flash[:alert] = "カートに追加できませんでした。お手数ですがもう一度操作を実施してください"
             redirect_to menu_show_path(params[:menu][:menu_id])
          end
       else
@@ -65,7 +65,7 @@ class CartsController < ApplicationController
             flash[:notice] = "カートに追加しました。"
             redirect_to menu_show_path(params[:menu][:menu_id])
           else
-            flash.now[:alert] = "カートに追加できませんでした。お手数ですがもう一度操作を実施してください"
+            flash[:alert] = "カートに追加できませんでした。お手数ですがもう一度操作を実施してください"
             redirect_to menu_show_path(params[:menu][:menu_id])
           end
          end

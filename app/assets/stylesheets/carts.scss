@@ -1,28 +1,57 @@
-.cart_list {
-    padding: 0 15px;
-    border: none;
-    margin: auto 200px;
-}
+ /* PC用CSS */
+ @media screen and (min-width: 768px) {
+     
+    /* cats#index */
+    .cart_list {
+        padding: 0 15px;
+        border: none;
+        margin: auto 200px;
+    }
 
-.cart_list a {
-    text-decoration: none;
-    color: #0d0d0d;
-}
+    .cart_list a {
+        text-decoration: none;
+        color: #0d0d0d;
+    }
 
-.order_link a {
-    text-decoration: underline;
-}
+    .order_link a {
+        text-decoration: underline;
+    }
 
-.cart_menu {
-    font-size: 17px;
-    padding: 20px;
-    width: 550px;
-    height: 300px;
-    white-space: nowrap;
-    overflow-y: scroll;
-}
+    .cart_menu {
+        font-size: 17px;
+        padding: 20px;
+        width: 550px;
+        height: 300px;
+        white-space: nowrap;
+        overflow-y: scroll;
+    }
 
-.cart_menu_height {
-    padding-bottom: 5px;
+    .cart_menu_height {
+        padding-bottom: 5px;
+    }
+
+ }
+
+ /* スマホ用CSS */
+@media screen and (max-width: 767px) {
+
+    /* cats#index */
+    .cart_list a {
+        text-decoration: none;
+        color: #0d0d0d;
+    }
+
+    .order_link a {
+        text-decoration: underline;
+    }
+
+    .cart_menu {
+        font-size: 17px;
+        padding: 20px;
+        width: 550px;
+        height: 150px;
+        white-space: nowrap;
+        overflow-y: scroll;
+    }
 
 }

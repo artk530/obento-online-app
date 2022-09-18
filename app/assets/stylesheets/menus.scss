@@ -1,158 +1,331 @@
- /* menus#index */
-.h2 {
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-}
+ /* PC用CSS */
+@media screen and (min-width: 768px) {
+ 
+    /* menus#index */
+    .h2 {
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+    }
 
-.h2:before, .h2:after {
-    border-top: 1px solid;
-    content: "";
-    width: 3em;
-  }
+    .h2:before, .h2:after {
+        border-top: 1px solid;
+        content: "";
+        width: 3em;
+    }
 
-.h2:before {
-    margin-right: 1em;
-  }
+    .h2:before {
+        margin-right: 1em;
+    }
 
-.h2:after {
-    margin-left: 1em;
-  }
+    .h2:after {
+        margin-left: 1em;
+    }
 
-.top3 {
-    padding: 0 15px;
-    border: none;
-    margin: auto 200px;
-}
+    .top3 {
+        padding: 0 15px;
+        border: none;
+        margin: auto 200px;
+    }
 
-.top3_character {
-    font-size: 16px;
-    font-weight: bold;
-}
+    .top3_character {
+        font-size: 16px;
+        font-weight: bold;
+    }
 
-.top3 img {
-    width: 230px;
-    height: 150px;
-    justify-content: center; /* 水平中心 */
-}
+    .top3 img {
+        width: 230px;
+        height: 150px;
+        justify-content: center;
+        border-radius: 15px;
+    }
 
-.menu_top3{
+    .menu_top3{
+        display: flex;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 20px;
+        justify-content: center;
+    }
+
+    .menu_no1 {
+        margin-right: 30px;
+    }
+
+    .menu_no1_link a {
+        text-decoration: none;
+        color: #0d0d0d;
+        position: relative;
+        display: inline-block;
+        transition: .3s;
+    }
+
+    .menu_no1_link a::after {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        content: '';
+        width: 0;
+        height: 2px;
+        background-color: #31aae2;
+        transition: .3s;
+        transform: translateX(-50%);
+    }
+    
+    .menu_no1_link a:hover::after{
+        width: 100%;
+    }
+
+    .menu_no2 {
+        margin-right: 30px;
+    }
+
+    .menu_no2_link a {
+        text-decoration: none;
+        color: #0d0d0d;
+        position: relative;
+        display: inline-block;
+        transition: .3s;
+    }
+
+    .menu_no2_link a::after {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        content: '';
+        width: 0;
+        height: 2px;
+        background-color: #31aae2;
+        transition: .3s;
+        transform: translateX(-50%);
+    }
+    
+    .menu_no2_link a:hover::after{
+        width: 100%;
+    }
+
+    .menu_no3 {
+        margin-right: 30px;
+    }
+
+    .menu_no3_link a {
+        text-decoration: none;
+        color: #0d0d0d;
+        position: relative;
+        display: inline-block;
+        transition: .3s;
+    }
+
+    .menu_no3_link a::after {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        content: '';
+        width: 0;
+        height: 2px;
+        background-color: #31aae2;
+        transition: .3s;
+        transform: translateX(-50%);
+    }
+    
+    .menu_no3_link a:hover::after{
+        width: 100%;
+    }
+
+    .menus {
+        padding: 0 15px;
+        border: none;
+        margin: auto 200px;
+    }
+
+    .menus a {
+        text-decoration: none;
+        color: #0d0d0d;
+    }
+
+    .menu_list {
     display: flex;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 20px;
-    justify-content: center;
+    flex-wrap: wrap;   
+    height: auto;
+    }
+
+    .menu_list_content {
+        display: block;
+        height: auto;
+        margin-right: 30px;
+        margin-bottom: 30px;
+        border: solid 1px black; 
+        border-radius: 15px;
+    }
+
+    .menu_list_content img {
+        width: 230px;
+        height: 150px;
+        border-radius: 15px;
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid #333;
+        margin: 0;
+    }
+
+    .menu_links a {
+        position: relative;
+        display: inline-block;
+        transition: .3s;
+    }
+
+    .menu_links a::after {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        content: '';
+        width: 0;
+        height: 2px;
+        background-color: #31aae2;
+        transition: .3s;
+        transform: translateX(-50%);
+    }
+    
+    .menu_links a:hover::after{
+        width: 100%;
+    }
+    
+    /* menus#new */
+    .new_menu {
+        padding: 0 15px;
+        border: none;
+        margin: auto 200px;
+    }
+
+    .menu_create_Notes{
+        font-weight: bold;
+    }
+
+    /* menus#show */
+    .menu_detail {
+        padding: 0 15px;
+        border: none;
+        margin: auto 200px;
+    }
+
+    .menu_name {
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    .allergy_info {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .use_ing_list {
+        padding: 10px;
+        width: 689px;
+        height: 100px;
+        overflow-wrap : break-word;
+    }
+
+    .image_description {
+        display: flex;
+        gap: 0px 20px;
+    }
+
+    .image_description img {
+        width: 500px;
+        height: 350px;
+        border-radius: 15px;
+    }
+
+    .menu_description {
+        width: 200px;
+    }
+
+    /* menus#edit */
+    .menu_edit {
+        padding: 0 15px;
+        border: none;
+        margin: auto 200px;
+    }
+
+    /* ValidatesError */
+    .mb-0 {
+        color: red;
+    }
+
 }
 
-.menu_no1 {
-    margin-right: 30px;
-}
+/* スマホ用CSS */
+@media screen and (max-width: 767px) {
 
-.menu_no2 {
-    margin-right: 30px;
-}
+    main {
+        padding: 30px;
+    }
 
-.menu_no3 {
-    margin-right: 30px;
-}
+    main  a {
+        text-decoration: none;
+        color: #0d0d0d;
+    }
 
-.menus {
-    padding: 0 15px;
-    border: none;
-    margin: auto 200px;
-}
+    /* スマホ用menus#index */
+    .menu_top3 {
+        display: flex;
+        margin-right: 10px;
+    }
 
-.menus a {
-    text-decoration: none;
-    color: #0d0d0d;
-}
+    .top3 img {
+        width: 230px;
+        height: 150px;
+        justify-content: center;
+        border-radius: 15px;
+    }
 
-.menu_list {
- display: flex;
- flex-wrap: wrap;   
- height: auto;
-}
+    .menu_no1 {
+        margin-right: 25px;
+    }
 
-.menu_list_content {
-    margin-right: 30px;
-    margin-bottom: 30px;
-    border: solid 1px black; 
-    border-radius: 15px;
-}
+    .menu_no2 {
+        margin-right: 25px;
+    }
 
-.menu_list_content img {
-    width: 230px;
-    height: 150px;
-    border-radius: 15px;
- }
+    .menu_no3 {
+        margin-right: 25px;
+    }
 
- hr {
-    border: none;
-    border-top: 1px solid #333;
-    margin: 0;
- }
+    .menu_list {
+        display: flex;
+        flex-wrap: wrap;   
+        height: auto;
+        }
 
- /* menus#new */
-.new_menu {
-    padding: 0 15px;
-    border: none;
-    margin: auto 200px;
-}
+    .menu_list_content {
+        display: block;
+        margin-right: 30px;
+        margin-bottom: 30px;
+        border: solid 1px black; 
+        border-radius: 15px;
+        margin-right: 25px;
+    }
 
-.menu_create_Notes{
-    font-weight: bold;
-}
-
- /* menus#show */
-.menu_detail {
-    padding: 0 15px;
-    border: none;
-    margin: auto 200px;
-}
-
-.menu_name {
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.allergy_info {
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.use_ing_list {
-    padding: 10px;
-    width: 689px;
-    height: 100px;
-    overflow-wrap : break-word;
-}
-
-.image_description {
-    display: flex;
-    gap: 0px 20px;
-}
-
-.image_description img {
-    width: 500px;
-    height: 350px;
-}
-
-.menu_description {
-    width: 200px;
-}
+    .menu_list_content img {
+        width: 230px;
+        height: 150px;
+        border-radius: 15px;
+    }
 
 
-/* menus#edit */
-.menu_edit {
-    padding: 0 15px;
-    border: none;
-    margin: auto 200px;
-}
+    /* スマホ用menus#show */
 
+    .image_description {
+        width: 700px;
+    }
 
-/* ValidatesError */
-.mb-0 {
-    border-color: red;
-    border: 3px;
-    background-color: red;
+    .image_description img {
+        width: 400px;
+        height: 250px;
+        border-radius: 15px;
+    }
+
+        
 }

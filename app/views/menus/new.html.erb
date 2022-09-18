@@ -1,7 +1,6 @@
 <main>
   <div class="new_menu">
     <%= form_with model: @menu, url: menu_create_path, local: true do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
       <h1>新規商品登録</h1>
       <label>材料名</label><br>
       <%= f.text_field :name %><br>

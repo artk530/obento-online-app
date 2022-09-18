@@ -13,7 +13,7 @@
         <%= f.password_field :password %><br>
         <%= f.label "再度パスワードを入力してください" %><span class="required">※</span><br>
         <%= f.password_field :password_confirmation %><br>
-        <%= f.label "郵便番号" %><br>
+        <%= f.label "郵便番号(ハイフン不要)" %><br>
         <%= f.number_field :post_code %><br>
         <%= f.label "住所" %><br>
         <%= f.text_field :address %><br>
@@ -27,8 +27,8 @@
             </div>
 
             <div id="open" style="display:none;clear:both;">
-                &emsp;配送をご希望された際のご本人様<br>
-                &emsp;確認のみに使用させていただきます。<br>
+                &emsp;ご注文された際の、本人様確認のみ<br>
+                &emsp;に使用させていただきます。<br>
             </div>
         <br>
         <%= f.submit "会員登録" %>

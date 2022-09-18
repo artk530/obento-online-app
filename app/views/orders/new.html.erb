@@ -18,18 +18,22 @@
         <%= f.radio_button :receive, :shop, checked: true, id: :shop_btn %>
         <%= f.label :receive, "店舗で受け取る" %><br>
         <%= f.radio_button :receive, :delivery, id: :delivery_btn %>
-        <%= f.label :receive, "自宅まで配送を希望　料金+300円" %><br>
-        <%= f.label "メールアドレス" %><br>
+        <%= f.label :receive, "自宅まで配達を希望　料金+300円" %><br>
+        <%= f.label "メールアドレス" %><span class="required">※</span><br>
         <%= f.text_field :email, value: @user.email, required: true, class: "order_mail" %><br>
-        <%= f.label "電話番号(ハイフン不要)" %><br>
+        <%= f.label "電話番号(ハイフン不要)" %><span class="required">※</span><br>
         <%= f.number_field :tel, value: @user.tel, required: true  %><br>
+        <span class="required">※</span>は必須入力です<br>
         <br>
-        <span class="receive_delivery">※自宅まで配送を希望</span>を選択された場合は、下記についてもご入力ください<br>
+        <span class="receive_delivery">※自宅まで配達を希望</span>を選択された場合は、下記についてもご入力ください<br>
+        <span class="receive_delivery">※お届け先によっては、配達をお断りする場合がございますことをご了承ください</span><br>
+        <%= f.label "郵便番号(ハイフン不要)" %><br>
+        <%= f.number_field :post_code, value: @user.post_code, id: :post_code, class: "order_post_code" %><br>
         <%= f.label "お届け先" %><br>
         <%= f.text_field :address, value: @user.address, id: :delivery_address, class: "order_address" %><br>
         <br>
         <%= f.submit "確認画面へ" %>
-        <!-- 自宅まで配送希望時のお届け先入力制御 -->
+        <!-- 自宅まで配達希望時のお届け先入力制御 -->
         <script>
           document.getElementById("delivery_btn").onclick = (function() {
           document.getElementById("delivery_address").required = true;
@@ -39,7 +43,7 @@
           document.getElementById("delivery_address").required = false;
           });
         </script>
-        <!-- 自宅まで配送希望時のお届け先入力制御 -->
+        <!-- 自宅まで配達希望時のお届け先入力制御 -->
     <% end %>
   </div>
 </main>

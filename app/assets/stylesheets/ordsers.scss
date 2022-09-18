@@ -1,49 +1,104 @@
-/* orders#new */
-.order_new {
-    padding: 0 15px;
-    border: none;
-    margin: auto 200px;
-}
+ /* PC用CSS */
+ @media screen and (min-width: 768px) {
 
-.receive {
-    font-size: 18px;
-    font-weight: bold;
-}
+    /* orders#new */
+    .order_new {
+        padding: 0 15px;
+        border: none;
+        margin: auto 200px;
+    }
 
-.receive_delivery {
-    font-weight: bold;
-}
+    .receive {
+        font-size: 18px;
+        font-weight: bold;
+    }
 
-.order_menu {
-    font-size: 17px;
-    padding: 20px;
-    width: 550px;
-    height: 300px;
-    white-space: nowrap;
-    overflow-y: scroll;
-}
+    .receive_delivery {
+        font-weight: bold;
+    }
 
-.order_mail {
-    width: 200px;
-}
+    .order_menu {
+        font-size: 17px;
+        padding: 20px;
+        width: 550px;
+        height: 300px;
+        white-space: nowrap;
+        overflow-y: scroll;
+    }
 
-.order_address {
-    width: 400px;
-}
+    .order_mail {
+        width: 200px;
+    }
 
-/* orders#check */
-.order_confirm{
-    padding: 0 15px;
-    border: none;
-    margin: auto 200px;
-}
+    .order_postcode {
+        width: 400px;
+    }
 
-/* orders#fin */
-.order_fin {
+    .order_address {
+        width: 400px;
+    }
+
+    /* orders#check */
+    .order_confirm{
+        padding: 0 15px;
+        border: none;
+        margin: auto 200px;
+    }
+
+    .check_menu {
+        font-size: 17px;
+        padding: 20px;
+        width: 550px;
+        height: 300px;
+        white-space: nowrap;
+        overflow-y: scroll;
+        
+    }
+
+    /* orders#fin */
+    .order_fin {
+        padding: 0 15px;
+        border: none;
+        margin: auto 200px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 32em
+    }
+
+ }
+
+  /* スマホ用CSS */
+@media screen and (max-width: 767px) {
+
+    /* orders#new */
+    .order_menu {
+        font-size: 17px;
+        padding: 20px;
+        width: 550px;
+        height: 150px;
+        white-space: nowrap;
+        overflow-y: scroll;
+    }
+
+    /* orders#check */
+    .check_menu {
+        font-size: 17px;
+        padding: 20px;
+        width: 550px;
+        height: 150px;
+        white-space: nowrap;
+        overflow-y: scroll;
+        
+    }
+
+    /* orders#fin */
+    .order_fin {
     padding: 0 15px;
     border: none;
     margin: auto 200px;
     margin-left: auto;
     margin-right: auto;
     width: 32em
+    }
+
 }

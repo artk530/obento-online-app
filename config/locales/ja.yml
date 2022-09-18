@@ -14,4 +14,7 @@ ja:
         name_kana: カナ氏名
         email: メールアドレス
         password: パスワード
+        password_confirmation: 再度入力されたパスワード
+        post_code: 郵便番号
         tel: 電話番号
+        

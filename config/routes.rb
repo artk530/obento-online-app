@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   root 'menus#index'
 
   #メニュー
-  get   'menus/show/:id',   to: 'menus#show',   as: 'menu_show'
-  get   'menus/new',        to: 'menus#new',    as: 'menu_new'
-  post  'menus/create',     to: 'menus#create', as: 'menu_create'
-  get   'menus/edit/:id',   to: 'menus#edit',   as: 'menu_edit'
-  patch 'menus/update/:id', to: 'menus#update', as: 'menu_update'
+  get    'menus/show/:id',   to: 'menus#show',    as: 'menu_show'
+  get    'menus/new',        to: 'menus#new',     as: 'menu_new'
+  post   'menus/create',     to: 'menus#create',  as: 'menu_create'
+  get    'menus/edit/:id',   to: 'menus#edit',    as: 'menu_edit'
+  patch  'menus/update/:id', to: 'menus#update',  as: 'menu_update'
+  delete 'menus/delete/:id', to: 'menus#destroy', as: 'menu_delete'
 
   #材料
   get    'ingredient/index',      to: 'ingredients#index',   as: 'ing_index'
@@ -18,15 +19,17 @@ Rails.application.routes.draw do
   delete 'ingredient/delete/:id', to: 'ingredients#destroy', as: 'ing_delete'
 
   #ユーザー
-  get   'users/new',        to: 'users#new',    as: 'user_new'
-  post  'users/create',     to: 'users#create', as: 'user_create'
-  get   'users/edit/:id',   to: 'users#edit',   as: 'user_edit'
-  patch 'users/update/:id', to: 'users#update', as: 'user_update'
+  get    'users/new',        to: 'users#new',    as:  'user_new'
+  post   'users/create',     to: 'users#create', as:  'user_create'
+  get    'users/edit/:id',   to: 'users#edit',   as:  'user_edit'
+  patch  'users/update/:id', to: 'users#update', as:  'user_update'
+  delete 'users/delete/:id', to: 'users#destroy', as: 'user_delete'
   
   #ログイン/ログアウト
-  get    'login',           to: 'sessions#new',     as: 'login'
-  post   'sessions/create', to: 'sessions#create',  as: 'login_create'
-  delete 'logout',          to: 'sessions#destroy', as: 'logout'
+  get    'login',           to: 'sessions#new',         as: 'login'
+  post   'sessions/create', to: 'sessions#create',      as: 'login_create'
+  delete 'logout',          to: 'sessions#destroy',     as: 'logout'
+  get    'admin_login',     to: 'sessions#admin_login', as: 'admin_login'
 
   #カート保存/削除
   get    'carts/list',      to: 'carts#index',   as: 'cart_list'

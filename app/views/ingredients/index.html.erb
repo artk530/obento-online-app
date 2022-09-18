@@ -5,8 +5,10 @@
     <br> 
     <label class="list_title">材料名/アレルギー</label><br>
       <% @ingredients.each do |ingredient| %>
-        <%= ingredient.name %>/<%= ingredient.allergy_name %> ( <%= link_to "編集", ing_edit_path(ingredient.id) %> 
-        <%= link_to "削除", ing_delete_path(ingredient.id), method: :delete %> ) <br>
+        <%= ingredient.name %>/<%= ingredient.allergy_name %>
+        ( <%= link_to "編集", ing_edit_path(ingredient.id) %> 
+        <%= link_to "削除", ing_delete_path(ingredient.id), method: :delete, 
+        data: { confirm: "本当に削除して良いですか?", cancel: "やめる", commit: "削除する"}, title: "削除確認" %> )<br>
         -------------------------------<br>
       <% end %>
   </div>

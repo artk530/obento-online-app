@@ -5,31 +5,45 @@
                 <div class="menu_no1">
                     <span class="top3_character">人気No1<i class="fa-solid fa-crown"></i></span><br>
                     <%= link_to image_tag(@no1.image), menu_show_path(@no1.id), alt: "お弁当の画像" %><br>
-                    <%= @no1.name %><br>
+                    <div class="menu_no1_link">
+                        <%= link_to @no1.name, menu_show_path(@no1.id) %><br>
+                    </div>
                 </div>
                 <div class="menu_no2">
                     <span class="top3_character">人気No2</span><br>
                     <%= link_to image_tag(@no2.image), menu_show_path(@no2.id), alt: "お弁当の画像" %><br>
-                    <%= @no2.name %><br>
+                    <div class="menu_no2_link">
+                        <%= link_to @no2.name, menu_show_path(@no2.id) %><br>
+                    </div>
                 </div>
                 <div class="menu_no3">
                     <span class="top3_character">人気No3</span><br>
                     <%= link_to image_tag(@no3.image), menu_show_path(@no3.id), alt: "お弁当の画像" %><br>
-                    <%= @no3.name %><br>
+                    <div class="menu_no3_link">
+                        <%= link_to @no3.name, menu_show_path(@no3.id) %><br>
+                    </div>
                 </div>
             </div>
     </section>
     <br>
     <section class="menus">
     <h1>商品一覧<hr></h1>
-    <%= link_to "新規商品追加", menu_new_path %>/<%= link_to "材料一覧", ing_index_path %><br>
+    <% if @admin_user == true %>
+        <%= link_to "新規商品追加", menu_new_path %>/<%= link_to "材料一覧", ing_index_path %><br>
+    <% end %>
         <div class="menu_list">
             <% @menus.each do |menu| %>
             <div class="menu_list_content">
                 <%= link_to image_tag(menu.image), menu_show_path(menu.id), alt: "お弁当の画像" %><br>
                 <hr>
-                <%= link_to menu.name, menu_show_path(menu.id) %> 
-                <%= link_to "編集", menu_edit_path(menu.id) %><br>
+                <div class="menu_links">
+                    <%= link_to menu.name, menu_show_path(menu.id) %> 
+                    <% if @admin_user == true %>
+                        <%= link_to "編集", menu_edit_path(menu.id) %>&nbsp;
+                        <%= link_to "削除", menu_delete_path(menu.id), method: :delete, 
+                                    data: { confirm: "本当に削除して良いですか?", cancel: "やめる", commit: "削除する"}, title: "削除確認" %> <br>
+                    <% end %>
+                </div>
                 <%= menu.price %>円<br>
                 <br>
                 <%= form_with model: @menus, url: index_cart_in_path do |f| %>

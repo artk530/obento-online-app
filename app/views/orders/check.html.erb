@@ -3,14 +3,15 @@
       <h3>以下の内容でご注文を承ります</h3>
       <br>
       <h1>注文商品一覧</h1>
-      <% @cart.each do |cart| %>
-        <%= form_with model: @cart, url: cart_out_path, method: :delete do |f| %>
-          <%= cart.menu.name %> 
-          <%= cart.menu.price %>円
-          <%= f.hidden_field :cart_id, value: cart.id %>
-        <% end %>  
-        ----------------------------------------
-      <% end %> 
+      <div class="check_menu">
+        <% @cart.each do |cart| %>
+          <%= form_with model: @cart, url: cart_out_path, method: :delete do |f| %>
+            <%= cart.menu.name %> 
+            <%= cart.menu.price %>円
+            <%= f.hidden_field :cart_id, value: cart.id %>
+          <% end %>  
+        <% end %> 
+      </div>
       <br>
       <label>合計<%= @total_price %>円</label><br>
       <br>
@@ -22,6 +23,8 @@
         <%= f.label session[:email] %><br>
         <%= f.label "■電話番号" %><br>
         <%= f.label session[:tel] %><br>
+        <%= f.label "■郵便番号" %><br>
+        <%= f.label session[:post_code] %><br>
         <%= f.label "■お届け先" %><br>
         <%= f.label session[:address] %><br>
         <%= f.label "合計" %><br>

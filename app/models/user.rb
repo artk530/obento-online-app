@@ -12,6 +12,13 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
     validates :password, presence: true, length: {minimum: 6 }, allow_nil: true
+    with_options length: { minimum: 7, maximum: 7} do
+        validates :post_code, length: { message: "は正しい桁数で入力してください" }
+
+    end
+    #if :post_code.length > 7 || protected.length < 7
+    #    errors[:post_code] << "桁数が不正です"
+    #end
     validates :tel,presence: true
     # 渡された文字列のハッシュ値を返す
     def User.digest(string)

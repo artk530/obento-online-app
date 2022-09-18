@@ -1,18 +1,40 @@
-.ing_list {
-    padding: 0 15px;
-    border: none;
-    margin: auto 200px;
-}
+ /* PC用CSS */
+ @media screen and (min-width: 768px) {
 
-.list_title {
-    font-size: 15;
-    font-weight: bold;
-}
+    /* ingredients#index */
+    .ing_list {
+        padding: 0 15px;
+        border: none;
+        margin: auto 200px;
+    }
 
-/* ValidatesError */
-.mb-0 {
-    border-color: red;
-    border: 3px;
-    background-color: red;
-    width: 478px;
-}
+    .list_title {
+        font-size: 15;
+        font-weight: bold;
+    }
+
+    /* ingredients#new */
+    #ingredient_allergy_name {
+        width: 170px;
+        height: 25px;
+    }
+
+    .ing_create {
+        padding: 0 15px;
+        border: none;
+        margin: auto 200px;
+    }
+
+    /* ingredients#edit */
+    .ing_update {
+        padding: 0 15px;
+        border: none;
+        margin: auto 200px;
+    }
+
+    /* ValidatesError */
+    .mb-0 {
+        color: red;
+    }
+
+ }

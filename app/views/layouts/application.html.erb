@@ -2,33 +2,39 @@
 <html>
   <head>
     <title>お弁当オンラインショップ</title>
+    <meta charset="utf-8">
+    <meta name="description" content="お弁当注文のオンラインページです。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/27e4ef7ece.js" crossorigin="anonymous"></script>
     <header>
-      <p>お弁当オンラインショップ(tel:012-345-6789)</p>
-      <nav class="navigate">
-        <%= link_to "<メニュー一覧に戻る>", root_path %>
-        <%= link_to "<カートの中身を確認する>", cart_list_path %>
-        <% if logged_in? %>
-          <%= link_to "<ログアウト>", logout_path, method: :delete %>
-          <%= link_to "<ユーザー更新>", user_edit_path(current_user) %>
-        <% else %>
-          <%= link_to "<ログイン>", login_path %>
-          <%= link_to "<会員登録>", user_new_path %>
-        <% end %>
-      </nav>
+        <p>お弁当オンラインショップ<br>(<i class="fa-solid fa-square-phone"></i>&nbsp;012-345-6789)</p>
+        <nav class="navigate">
+          <%= link_to "<メニュー一覧に戻る>", root_path %>
+          <%= link_to "<カートの中身を確認する>", cart_list_path %><br>
+          <% if logged_in? %>
+            <%= link_to "<ログアウト>", logout_path, method: :delete %>
+            <%= link_to "<ユーザー更新>", user_edit_path(current_user) %>
+            <%= link_to "<退会する>", user_delete_path(current_user), method: :delete %>
+          <% else %>
+            <%= link_to "<ログイン>", login_path %>
+            <%= link_to "<会員登録>", user_new_path %>
+            <%= link_to "※管理者でログイン", admin_login_path %>
+          <% end %>
+        </nav>
     </header>
   </head>
+  <hr>
 
   <body>
     <div class="flash_notice">
-      <%= flash[:notice] %>
+      <%= flash.now[:notice] %>
     </div>
     <div class="flash_alert">
-      <%= flash[:alert] %>
+      <%= flash.now[:alert] %>
     </div>
     <%= yield %>
     <%= debug(params) if Rails.env.development? %>

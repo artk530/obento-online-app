@@ -5,7 +5,7 @@
     margin: auto 200px; 
     margin-left: auto;
     margin-right: auto;
-    width: 18em
+    width: 19em
 }
 
 .required {
@@ -32,7 +32,5 @@
 
 /* ValidatesError */
 .mb-0 {
-    border-color: red;
-    border: 3px;
-    background-color: red;
+    color: red;
 }
