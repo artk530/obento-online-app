@@ -14,8 +14,13 @@ class MenusController < ApplicationController
       if count == 3
         break
       else
-        menu_in_top3.push(Menu.find(menu_id))
-        count += 1
+        del_menu = Menu.find(menu_id)
+        if  del_menu.del_flg == true
+        else
+          menu_in_top3.push(Menu.find(menu_id))
+          count += 1
+        end
+        
       end
     end
     @no1 = menu_in_top3[0]

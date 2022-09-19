@@ -2,27 +2,32 @@
     <section class="top3">
         <h2><span class="h2">人気のお弁当BEST3</span></h2>
             <div class="menu_top3">
-                <div class="menu_no1">
-                    <span class="top3_character">人気No1<i class="fa-solid fa-crown"></i></span><br>
-                    <%= link_to image_tag(@no1.image), menu_show_path(@no1.id), alt: "お弁当の画像" %><br>
-                    <div class="menu_no1_link">
-                        <%= link_to @no1.name, menu_show_path(@no1.id) %><br>
+                <% if @no3.nil? %>
+                <% else %>
+                    <div class="menu_no1">
+                        <span class="top3_character">人気No1<i class="fa-solid fa-crown"></i></span><br>
+                        <%= link_to image_tag(@no1.image), menu_show_path(@no1.id), alt: "お弁当の画像" %><br>
+                        <div class="menu_no1_link">
+                            <%= link_to @no1.name, menu_show_path(@no1.id) %><br>
+                        </div>
                     </div>
-                </div>
-                <div class="menu_no2">
-                    <span class="top3_character">人気No2</span><br>
-                    <%= link_to image_tag(@no2.image), menu_show_path(@no2.id), alt: "お弁当の画像" %><br>
-                    <div class="menu_no2_link">
-                        <%= link_to @no2.name, menu_show_path(@no2.id) %><br>
+                    <div class="menu_no2">
+                        <span class="top3_character">人気No2</span><br>
+                        <%= link_to image_tag(@no2.image), menu_show_path(@no2.id), alt: "お弁当の画像" %><br>
+                        <div class="menu_no2_link">
+                            <%= link_to @no2.name, menu_show_path(@no2.id) %><br>
+                        </div>
                     </div>
-                </div>
-                <div class="menu_no3">
-                    <span class="top3_character">人気No3</span><br>
-                    <%= link_to image_tag(@no3.image), menu_show_path(@no3.id), alt: "お弁当の画像" %><br>
-                    <div class="menu_no3_link">
-                        <%= link_to @no3.name, menu_show_path(@no3.id) %><br>
+                    <div class="menu_no3">
+                        <span class="top3_character">人気No3</span><br>
+                        <%= link_to image_tag(@no3.image), menu_show_path(@no3.id), alt: "お弁当の画像" %><br>
+                        <div class="menu_no3_link">
+                            <%= link_to @no3.name, menu_show_path(@no3.id) %><br>
+                        </div>
                     </div>
-                </div>
+                <% end %>
+
+                
             </div>
     </section>
     <br>
