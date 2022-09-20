@@ -28,7 +28,7 @@
         <span class="receive_delivery">※自宅まで配達を希望</span>を選択された場合は、下記についてもご入力ください<br>
         <span class="receive_delivery">※お届け先によっては、配達をお断りする場合がございますことをご了承ください</span><br>
         <%= f.label "郵便番号(ハイフン不要)" %><br>
-        <%= f.number_field :post_code, value: @user.post_code, id: :post_code, class: "order_post_code" %><br>
+        <%= f.number_field :post_code, value: @user.post_code, id: :delivery_post_code, class: "order_post_code" %><br>
         <%= f.label "お届け先" %><br>
         <%= f.text_field :address, value: @user.address, id: :delivery_address, class: "order_address" %><br>
         <br>
@@ -36,12 +36,13 @@
         <!-- 自宅まで配達希望時のお届け先入力制御 -->
         <script>
           document.getElementById("delivery_btn").onclick = (function() {
+          document.getElementById("delivery_post_code").required = true;
           document.getElementById("delivery_address").required = true;
           });
-
           document.getElementById("shop_btn").onclick = (function() {
+          document.getElementById("delivery_post_code").required = false;
           document.getElementById("delivery_address").required = false;
-          });
+          });          
         </script>
         <!-- 自宅まで配達希望時のお届け先入力制御 -->
     <% end %>

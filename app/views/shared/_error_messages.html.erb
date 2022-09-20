@@ -2,10 +2,7 @@
   <div class="alert alert-danger">
     <ul class="mb-0">
       <% object.errors.full_messages.each do |msg| %>
-        <% if msg == "郵便番号は7文字以内で入力してください" || msg == "郵便番号は7文字以上で入力してください" %>
-        <% else %>
           <li><%= msg %></li>
-        <% end %>
       <% end %>
     </ul>
   </div>

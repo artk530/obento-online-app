@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash[:notice] = "会員登録が正常に完了しました。また作成した会員情報でログインしました"
+      flash[:notice] = "会員登録が正常に完了しました　また作成した会員情報でログインしました"
       redirect_to root_path
     else
       flash.now[:alert] = "会員登録に失敗しました　もう一度登録処理を実施してください"
