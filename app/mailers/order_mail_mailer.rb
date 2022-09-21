@@ -8,7 +8,6 @@ class OrderMailMailer < ApplicationMailer
         @tel = tel
         @total_price = total_price
         @ordernumber = ordernumber
-        
         mail(to: @email, subject: "ご注文ありがとうございます")
     end
 
