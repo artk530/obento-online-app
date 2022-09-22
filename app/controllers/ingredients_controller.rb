@@ -1,6 +1,6 @@
 class IngredientsController < ApplicationController
   def index
-    @ingredients = ing_all
+    @ingredients = ing_all.order(:id)
   end
 
   def new

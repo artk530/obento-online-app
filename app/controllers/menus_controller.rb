@@ -1,6 +1,6 @@
 class MenusController < ApplicationController
   def index
-    @menus = Menu.where(del_flg: false)
+    @menus = Menu.where(del_flg: false).order(:id)
     if session[:user_id] == 1
       @admin_user = true
     else
