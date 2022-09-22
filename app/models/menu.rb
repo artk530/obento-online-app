@@ -3,7 +3,8 @@ class Menu < ApplicationRecord
     has_many :products
     has_many :purchasehistries
 
-    has_one_attached :image
+    #has_one_attached :image
+    mount_uploader :image, ImageUploader
 
     validates :name, presence: true
     validates :price, presence: true

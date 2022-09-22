@@ -8,7 +8,7 @@
         <% end %>
       </div>
       <div class="image_description">
-        <%= image_tag @menu.image, alt: "お弁当の画像" %><br>
+        <%= image_tag @menu.image.url, alt: "お弁当の画像" %><br>
         <span class="menu_description"><%= @menu.description %></span>
       </div><br>
       <label>価格:</label><%= @menu.price %>円<br>
