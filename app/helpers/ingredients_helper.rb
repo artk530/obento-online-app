@@ -7,7 +7,7 @@ module IngredientsHelper
         
         #商品と材料の紐づけが有効なものを取得  
         def get_product
-          Product.where(del_flg: false).where(menu_id: params[:id])
+          Product.where(del_flg: false).where(menu_id: params[:id]).order(ingredient_id: :DESC)
         end
 
         def current_ing

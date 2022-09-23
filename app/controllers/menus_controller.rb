@@ -51,7 +51,7 @@ class MenusController < ApplicationController
 
   def new
     @menu = Menu.new
-    @ingredients = ing_all
+    @ingredients = ing_all.order(:id)
   end
 
   def create
@@ -90,7 +90,7 @@ class MenusController < ApplicationController
 
   def edit
     @menu = current_menu
-    @ingredients = ing_all
+    @ingredients = ing_all.order(:id)
     @products = get_product
 
     #材料名称 取得
