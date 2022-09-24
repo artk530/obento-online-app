@@ -38,6 +38,7 @@
     <% end %>
         <div class="menu_list">
             <% @menus.each do |menu| %>
+            <%= image_tag "/uploads/menu/image/#{menu.id}/#{menu.name}.jpg" %>
             <div class="menu_list_content">
                 <%= link_to image_tag(menu.image.url), menu_show_path(menu.id), alt: "お弁当の画像" %><br>
                 <hr>
